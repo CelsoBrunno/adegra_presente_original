@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>Sobre Nós</h4>
+                    <div class="breadcrumb__links">
+                        <a href="{{ url_for('index') }}">Home</a>
+                        <span>Sobre Nós</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- About Section Begin -->
+<section class="about spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="about__pic">
+                    <h2><center><b>SOBRE {{ empresa_nome }}</b></center></h2>
+                    <br>
+                    <p style="text-align: justify;">
+                        <b>Olá!!! Seja muito bem-vind@!!!</b>
+                        <br>
+                        Somos apaixonados pela vida e, foi de nossa alegria de celebrar a vida que nasceu a ideia de oferecer uma opção para tornar o ato de 'presentear' uma experiência inesquecível.
+                        <br>
+                        O nome "Adega Presente" veio da ideia de "presentear" e "ser presente". "Presentear" porque é um ato de partilha e comunhão; e, "ser presente" porque nada substitui a energia, alegria e afeto de um abraço.
+                        <br>
+                        Nosso principal objetivo é oferecer bebidas alcoólicas e acessórios, excelentes e criativos que, preferencialmente, sejam produzidos de forma sustentável e socialmente responsável. 
+                        Buscamos desenvolver uma parceria de longo prazo com nossos clientes, colaboradores e fornecedores. Além disso, através de ações sociais, buscaremos retribuir à comunidade um pouco os benefícios que usufruímos.
+                        <br>
+                        Gratidão por sua visita!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="about__item">
+                    <h4>Missão</h4>
+                    <p style="text-align: justify;">
+                        Criar vínculos fortes e duradouros com fornecedores e clientes, oferecendo produtos e serviços excelentes e criativos para tornar cada presente uma celebração da vida, agindo sempre com responsabilidade social e ambiental.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="about__item">
+                    <h4></h4>
+                    <p style="text-align: justify;"></p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="about__item">
+                    <h4>Valores</h4>
+                    <p style="text-align: justify;">
+                        Respeito;<br>
+                        Humanidade;<br>
+                        Excelência;<br>
+                        Alegria responsável; e,<br>
+                        Gratidão.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Section End -->
+
+<!-- Testimonial Section Begin -->
+<section class="testimonial">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 p-0">
+                <div class="testimonial__text">
+                    <h2>Fornecedores</h2>
+                    <br>
+                    <p style="text-align: justify;">
+                        Mais que fornecedores (produtores, distribuidores e importadores), buscamos parceiros de valores e projetos de vida, que ofereçam produtos criativos, de excelente qualidade e que atuem com responsabilidade social e ambiental.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 p-0">
+                <div class="testimonial__pic set-bg" data-setbg="{{ url_for('static', filename='img/about/testimonial-pic.jpg') }}"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Testimonial Section End -->
+
+<br>
+
+<!-- Client Section Begin -->
+<section class="clients spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <br>
+                    <h2>Parceiros fundamentais para nosso sucesso:</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                <a href="https://www.vinicolaenos.com.br/" class="client__item" target="_blank"><img src="{{ url_for('static', filename='img/clients/client-1.png') }}" alt="Enos Vinhos"></a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                <a href="https://www.instagram.com/ercoara/" class="client__item" target="_blank"><img src="{{ url_for('static', filename='img/clients/client-2.png') }}" alt="Ercoara"></a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                <a href="https://www.luizargenta.com.br/site/" class="client__item" target="_blank"><img src="{{ url_for('static', filename='img/clients/client-3.png') }}" alt="Luiz Argenta"></a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4 col-6">
+                <a href="https://www.wine-co.com.br/" class="client__item" target="_blank"><img src="{{ url_for('static', filename='img/clients/client-4.png') }}" alt="Wine & Co"></a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Client Section End -->
+{% endblock %}
+

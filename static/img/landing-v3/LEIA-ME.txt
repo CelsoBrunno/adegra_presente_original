@@ -1,0 +1,6 @@
+Texturas aplicadas:
+
+1) paper-dark.png  → fundo externo (OSB)
+2) paper-light.png → painel interno (carvalho)
+
+Para trocar, substitua estes arquivos mantendo os nomes.

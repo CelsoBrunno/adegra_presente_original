@@ -1,0 +1,731 @@
+/* Landing ADEGA PRESENTE — página única (não altera o site completo) */
+
+:root {
+  --lp-brand: #aa1c21;
+  --lp-brand-dark: #7a1217;
+  --lp-ink: #141414;
+  --lp-muted: #5c5c5c;
+  --lp-paper: #f7f5f2;
+  --lp-surface: #ffffff;
+  --lp-line: #e4e0db;
+  --lp-whatsapp: #25d045;
+  --lp-max: 1120px;
+  --lp-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.lp-body {
+  margin: 0;
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--lp-ink);
+  background: var(--lp-paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+.lp-body a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.lp-sans {
+  font-family: "Nunito Sans", system-ui, sans-serif;
+}
+
+.lp-wrap {
+  width: min(100% - 2rem, var(--lp-max));
+  margin-inline: auto;
+}
+
+/* —— Top bar —— */
+.lp-top {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 20;
+  padding: 1.1rem 0;
+}
+
+.lp-top__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.lp-top__brand img {
+  display: block;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+}
+
+.lp-top__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lp-link-quiet {
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 0.9;
+}
+
+.lp-link-quiet:hover {
+  color: #fff;
+}
+
+.lp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s var(--lp-ease), background 0.25s ease, color 0.25s ease;
+}
+
+.lp-btn:hover {
+  transform: translateY(-1px);
+}
+
+.lp-btn--wa {
+  background: var(--lp-whatsapp);
+  color: #fff;
+  padding: 0.7rem 1.15rem;
+}
+
+.lp-btn--wa:hover {
+  background: #1ebe3d;
+  color: #fff;
+}
+
+.lp-btn--brand {
+  background: var(--lp-brand);
+  color: #fff;
+  padding: 0.85rem 1.4rem;
+}
+
+.lp-btn--brand:hover {
+  background: var(--lp-brand-dark);
+  color: #fff;
+}
+
+.lp-btn--ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  padding: 0.85rem 1.4rem;
+}
+
+.lp-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.lp-btn--outline {
+  background: transparent;
+  color: var(--lp-brand);
+  border: 1px solid var(--lp-brand);
+  padding: 0.75rem 1.2rem;
+}
+
+.lp-btn--outline:hover {
+  background: var(--lp-brand);
+  color: #fff;
+}
+
+/* —— Hero —— */
+.lp-hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: end;
+  color: #fff;
+  overflow: hidden;
+}
+
+.lp-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.lp-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.04);
+  animation: lp- ken 18s var(--lp-ease) infinite alternate;
+}
+
+@keyframes lp-ken {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+.lp-hero__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 6, 6, 0.45) 0%, rgba(10, 6, 6, 0.25) 40%, rgba(10, 6, 6, 0.82) 100%),
+    linear-gradient(90deg, rgba(80, 10, 14, 0.35), transparent 55%);
+  z-index: 1;
+}
+
+.lp-hero__content {
+  position: relative;
+  z-index: 2;
+  padding: 7.5rem 0 4.5rem;
+  max-width: 34rem;
+}
+
+.lp-hero__brand {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin: 0 0 1rem;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+
+.lp-hero__lead {
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 1.75rem;
+  max-width: 28rem;
+}
+
+.lp-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.lp-hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 1.25rem;
+  z-index: 2;
+  transform: translateX(-50%);
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  animation: lp-bob 2.2s ease-in-out infinite;
+}
+
+@keyframes lp-bob {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate(-50%, 6px);
+    opacity: 1;
+  }
+}
+
+/* —— Sections —— */
+.lp-section {
+  padding: 4.5rem 0;
+}
+
+.lp-section--tight {
+  padding: 3.25rem 0;
+}
+
+.lp-section__label {
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lp-brand);
+  margin: 0 0 0.6rem;
+}
+
+.lp-section__title {
+  font-size: clamp(1.85rem, 4vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+}
+
+.lp-section__text {
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  font-size: 0.98rem;
+  color: var(--lp-muted);
+  margin: 0 0 2rem;
+  max-width: 36rem;
+}
+
+/* —— Categories —— */
+.lp-cats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+@media (min-width: 768px) {
+  .lp-cats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+.lp-cat {
+  position: relative;
+  display: block;
+  min-height: 220px;
+  overflow: hidden;
+  color: #fff;
+  isolation: isolate;
+  border-radius: 14px;
+  border: 1px solid rgba(170, 28, 33, 0.28);
+  background: #f6f3ef;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+    0 10px 28px rgba(20, 10, 10, 0.12);
+  transition:
+    transform 0.35s var(--lp-ease),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.lp-body a.lp-cat,
+.lp-body a.lp-cat:hover {
+  color: #fff;
+}
+
+.lp-cat:hover {
+  transform: translateY(-3px);
+  border-color: rgba(170, 28, 33, 0.7);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.28),
+    0 14px 34px rgba(20, 10, 10, 0.18);
+}
+
+.lp-cat img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1.15rem;
+  box-sizing: border-box;
+  object-fit: contain;
+  object-position: center 40%;
+  transition: transform 0.7s var(--lp-ease);
+  z-index: 0;
+  transform: scale(0.9);
+  transform-origin: center center;
+}
+
+.lp-cat::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 10px;
+  pointer-events: none;
+  opacity: 0.85;
+  transition: opacity 0.35s ease;
+}
+
+.lp-cat:hover::before {
+  opacity: 1;
+}
+
+.lp-cat::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgba(8, 4, 4, 0.9) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.lp-cat:hover img {
+  transform: scale(0.96);
+}
+
+.lp-cat__body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  padding: 1rem 1.1rem 0.55rem;
+  color: #fff;
+}
+
+.lp-cat__name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.15rem;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.lp-cat__hint {
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+}
+
+/* —— Discount —— */
+.lp-discount {
+  background: var(--lp-brand);
+  color: #fff;
+}
+
+.lp-discount .lp-section__label {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.lp-discount .lp-section__title,
+.lp-discount .lp-section__text {
+  color: #fff;
+}
+
+.lp-discount .lp-section__text {
+  opacity: 0.9;
+}
+
+.lp-discount__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+  font-family: "Nunito Sans", system-ui, sans-serif;
+}
+
+@media (min-width: 768px) {
+  .lp-discount__list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.lp-discount__list li {
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  padding-top: 0.85rem;
+}
+
+.lp-discount__list strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+
+.lp-discount__list span {
+  font-size: 0.9rem;
+  opacity: 0.92;
+  line-height: 1.45;
+}
+
+/* —— Steps —— */
+.lp-steps {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .lp-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.lp-step__num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--lp-brand);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.lp-step__title {
+  font-size: 1.35rem;
+  margin: 0 0 0.4rem;
+}
+
+.lp-step__text {
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  font-size: 0.92rem;
+  color: var(--lp-muted);
+  margin: 0;
+}
+
+/* —— About band —— */
+.lp-about {
+  display: grid;
+  gap: 0;
+  background: var(--lp-ink);
+  color: #fff;
+}
+
+@media (min-width: 900px) {
+  .lp-about {
+    grid-template-columns: 1.05fr 1fr;
+    min-height: 420px;
+  }
+}
+
+.lp-about__media {
+  min-height: 260px;
+  background-size: cover;
+  background-position: center;
+}
+
+.lp-about__copy {
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .lp-about__copy {
+    padding: 3.5rem 3rem;
+  }
+}
+
+.lp-about__copy .lp-section__label {
+  color: #e8a0a4;
+}
+
+.lp-about__copy .lp-section__title {
+  color: #fff;
+}
+
+.lp-about__copy p {
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 0 1rem;
+  max-width: 34rem;
+}
+
+/* —— Contact —— */
+.lp-contact {
+  background: var(--lp-surface);
+  border-top: 1px solid var(--lp-line);
+}
+
+.lp-contact__grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .lp-contact__grid {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: end;
+  }
+}
+
+.lp-contact__meta {
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  font-size: 0.95rem;
+  color: var(--lp-muted);
+  margin: 0;
+}
+
+.lp-contact__meta a {
+  color: var(--lp-brand);
+  font-weight: 700;
+}
+
+.lp-contact__meta + .lp-contact__meta {
+  margin-top: 0.55rem;
+}
+
+.lp-socials {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.lp-socials a {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--lp-line);
+  color: var(--lp-ink);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.lp-socials a:hover {
+  background: var(--lp-brand);
+  border-color: var(--lp-brand);
+  color: #fff;
+}
+
+.lp-catalogs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-items: stretch;
+}
+
+/* —— Footer —— */
+.lp-footer {
+  padding: 1.5rem 0 2rem;
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  font-size: 0.8rem;
+  color: var(--lp-muted);
+  text-align: center;
+}
+
+.lp-footer a {
+  color: var(--lp-brand);
+  font-weight: 600;
+}
+
+/* —— WhatsApp float —— */
+.lp-wa-float {
+  position: fixed;
+  right: 22px;
+  bottom: 28px;
+  z-index: 90;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--lp-whatsapp);
+  display: grid;
+  place-items: center;
+  box-shadow: none;
+  animation: lp-pulse 2.4s ease-in-out infinite;
+}
+
+.lp-wa-float i {
+  line-height: 1;
+}
+
+@keyframes lp-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+/* —— Age gate —— */
+.lp-age {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(8, 6, 6, 0.72);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.lp-age.is-open {
+  display: flex;
+}
+
+.lp-age__box {
+  background: var(--lp-surface);
+  padding: 2rem 1.5rem;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+}
+
+.lp-age__box h2 {
+  font-size: 1.7rem;
+  margin: 0 0 0.35rem;
+}
+
+.lp-age__box p {
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  font-size: 0.92rem;
+  color: var(--lp-muted);
+  margin: 0 0 1.25rem;
+}
+
+.lp-age__actions {
+  display: flex;
+  gap: 0.65rem;
+  justify-content: center;
+}
+
+.lp-age__actions .lp-btn {
+  min-width: 96px;
+  padding: 0.7rem 1rem;
+}
+
+.lp-age__yes {
+  background: var(--lp-brand);
+  color: #fff;
+}
+
+.lp-age__no {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+/* —— Reveal motion —— */
+.lp-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--lp-ease), transform 0.7s var(--lp-ease);
+}
+
+.lp-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-hero__media img,
+  .lp-hero__scroll,
+  .lp-wa-float,
+  .lp-reveal {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+.env
+*.db
+*.sqlite3
+.DS_Store
+*.log
+instance/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Arquivos temporários e de desenvolvimento
+*.psd
+*.zip
+sass/
+source/
+

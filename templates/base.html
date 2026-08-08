@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="{{ empresa_nome }} - Celebrando Cada Momento.">
+    <meta name="keywords" content="vinhos, adega, vinhos premium, comprar vinhos, vinhos online, ADEGA PRESENTE, enologia, harmonização de vinhos, Brasília, Plano Piloto, Brasil, DF.">
+    <meta name="author" content="{{ empresa_nome }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{{ empresa_nome }}{% endblock %}</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/elegant-icons.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slicknav.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+    <style>
+        /* Estilo básico para o popup */
+        #ageCheckPopup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #ageCheckContent {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        #ageCheckButtons button {
+            margin: 10px;
+        }
+        #ageYes { 
+            background: #aa1c21;
+            color: #e2e2e2;
+        }
+        
+        /* Estilo para o banner principal */
+        .main-banner {
+            background: url('https://via.placeholder.com/1200x400') no-repeat center center;
+            background-size: cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .main-banner h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(247, 247, 247, 0.6);
+        }
+        
+        /* Estilo para a faixa vermelha */
+        .discount-banner {
+            background-color: #aa1c21;
+            color: #ffffff;
+            padding: 4px;
+            text-align: center;
+        }
+        .discount-banner h2 {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+        .discount-banner p {
+            color: #ffffff;
+        }
+        .discount-button {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #717171;
+            color: #ffffff;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .discount-button:hover {
+            background-color: #0e0e0e;
+            border-color: #1a1a1a;
+        }
+        
+        /* Estilo para o container do conteúdo */
+        .info-container {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .info-image {
+            width: 40%;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+        .info-text {
+            flex: 1;
+        }
+        .info-text h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .info-text p {
+            color: #0a0a0a;
+            margin-bottom: 20px;
+        }
+        .info-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #aa1c21;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .info-button:hover {
+            background-color: #0e0e0e;
+        }
+        
+        a.custom-link {
+            color: #e51919;
+            text-decoration: none;
+        }
+        a.custom-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Ajustes para dispositivos móveis */
+        @media (max-width: 768px) {
+            .discount-banner {
+                padding: 5px;
+                margin: 5px;
+            }
+            .discount-banner h2 {
+                font-size: 1.2rem;
+            }
+            .discount-button {
+                font-size: 14px;
+            }
+        }
+    </style>
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Botão WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone={{ telefone_whatsapp }}&text=Estamos%20aqui%20para%20ajudar!%20Como%20podemos%20ser%20úteis%20hoje?" 
+       id="waurlsite" 
+       class="bt-whatsApp" 
+       target="_blank" 
+       style="right:25px; position:fixed;width:60px;height:60px;bottom:40px;z-index:100;">
+        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMjYxOSA1MDYgMTIwIDEyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogIzI3ZDA0NTsKICAgICAgfQoKICAgICAgLmNscy0yLCAuY2xzLTUgewogICAgICAgIGZpbGw6IG5vbmU7CiAgICAgIH0KCiAgICAgIC5jbHMtMiB7CiAgICAgICAgc3Ryb2tlOiAjZmZmOwogICAgICAgIHN0cm9rZS13aWR0aDogNXB4OwogICAgICB9CgogICAgICAuY2xzLTMgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtNCB7CiAgICAgICAgc3Ryb2tlOiBub25lOwogICAgICB9CiAgICA8L3N0eWxlPjwvZGVmcz48ZyBkYXRhLW5hbWU9Ikdyb3VwIDM2IiBpZD0iR3JvdXBfMzYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIzMDAgNzMpIj48Y2lyY2xlIGNsYXNzPSJjbHMtMSIgY3g9IjYwIiBjeT0iNjAiIGRhdGEtbmFtZT0iRWxsaXBzZSAxOCIgaWQ9IkVsbGlwc2VfMTgiIHI9IjYwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMTkgNDMzKSIvPjxnIGRhdGEtbmFtZT0iR3JvdXAgMzUiIGlkPSJHcm91cF8zNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjU0IDM4NikiPjxnIGRhdGEtbmFtZT0iR3JvdXAgMzQiIGlkPSJHcm91cF8zNCI+PGcgY2xhc3M9ImNscy0yIiBkYXRhLW5hbWU9IkVsbGlwc2UgMTkiIGlkPSJFbGxpcHNlXzE5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5NCA3NSkiPjxjaXJjbGUgY2xhc3M9ImNscy00IiBjeD0iMzEuNSIgY3k9IjMxLjUiIHI9IjMxLjUiLz48Y2lyY2xlIGNsYXNzPSJjbHMtNSIgY3g9IjMxLjUiIGN5PSIzMS41IiByPSIyOSIvPjwvZz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0xNDI0LDE5MWwtNC42LDE2LjMsMTYuOS00LjcuOS01LjItMTEsMy41LDIuOS0xMC41WiIgZGF0YS1uYW1lPSJQYXRoIDEyNiIgaWQ9IlBhdGhfMTI2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTMyNSAtNjgpIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTI2Niw5MGMwLS4xLDMuNS0xMS43LDMuNS0xMS43bDguNCw3LjlaIiBkYXRhLW5hbWU9IlBhdGggMTI3IiBpZD0iUGF0aF8xMjciIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMTY1IDQzKSIvPjwvZz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0xNDM5LjMsMTYwLjZhOS40LDkuNCwwLDAsMC0zLjksNi4xYy0uNSwzLjksMS45LDcuOSwxLjksNy45YTUwLjg3Niw1MC44NzYsMCwwLDAsOC42LDkuOCwzMC4xODEsMzAuMTgxLDAsMCwwLDkuNiw1LjEsMTEuMzc4LDExLjM3OCwwLDAsMCw2LjQuNiw5LjE2Nyw5LjE2NywwLDAsMCw0LjgtMy4yLDkuODUxLDkuODUxLDAsMCwwLC42LTIuMiw1Ljg2OCw1Ljg2OCwwLDAsMCwwLTJjLS4xLS43LTcuMy00LTgtMy44cy0xLjMsMS41LTIuMSwyLjYtMS4xLDEuNi0xLjksMS42LTQuMy0xLjQtNy42LTQuNGExNS44NzUsMTUuODc1LDAsMCwxLTQuMy02cy42LS43LDEuNC0xLjhhNS42NjQsNS42NjQsMCwwLDAsMS4zLTIuNGMwLS41LTIuOC03LjYtMy41LTcuOUExMS44NTIsMTEuODUyLDAsMCwwLDE0MzkuMywxNjAuNloiIGRhdGEtbmFtZT0iUGF0aCAxMjgiIGlkPSJQYXRoXzEyOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEzMjYuMzMyIC02OC40NjcpIi8+PC9nPjwvZz48L3N2Zz4=" alt="WhatsApp" width="60px">
+    </a>
+    <span id="alertWapp" style="right:30px; visibility: hidden; position:fixed; width:17px; height:17px;bottom:90px; background:red;z-index:101; font-size:11px;color:#fff;text-align:center;border-radius: 50px; font-weight:bold;line-height: normal;"> 1 </span>
+    <div id="msg1" style="right: 90px; visibility: hidden; background: #fff;color: #000;position: fixed;width: 100px;bottom: 55px;font-size: 12px;line-height: 13px;padding: 3px; border-radius: 10px; border:1px solid #e2e2e2; box-shadow: 2px 2px 3px #999;z-index:100;">Para compras ou mais informações, chame!</div>
+
+    <!-- POPUP maior de 18 anos -->
+    <div id="ageCheckPopup" style="display: none;">
+        <div id="ageCheckContent">
+            <h4>{{ empresa_nome }}</h4>
+            <h6>Celebre cada momento!</h6>
+            <h4>Você tem mais de 18 anos?</h4>
+            <div id="ageCheckButtons">
+                <button id="ageYes">SIM</button>
+                <button id="ageNo">NÃO</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Função para mostrar o popup
+        function showAgeCheckPopup() {
+            document.getElementById('ageCheckPopup').style.display = 'flex';
+        }
+    
+        // Função para esconder o popup e redirecionar
+        function handleAgeConfirmation(isAdult) {
+            var popup = document.getElementById('ageCheckPopup');
+            if (isAdult) {
+                popup.style.display = 'none';
+                sessionStorage.setItem('ageConfirmed', 'true');
+            } else {
+                window.location.href = '#';
+            }
+        }
+    
+        // Evento de clique nos botões
+        document.getElementById('ageYes').addEventListener('click', function() {
+            handleAgeConfirmation(true);
+        });
+    
+        document.getElementById('ageNo').addEventListener('click', function() {
+            handleAgeConfirmation(false);
+        });
+    
+        // Mostra o popup quando a página carrega
+        window.onload = function() {
+            if (!sessionStorage.getItem('ageConfirmed')) {
+                showAgeCheckPopup();
+            }
+        };
+        
+        // WhatsApp widget functions
+        function showIt2() {
+            document.getElementById("msg1").style.visibility = "visible";
+        }
+        function hiddenIt() {
+            document.getElementById("msg1").style.visibility = "hidden";
+        }
+        function showIt3() {
+            document.getElementById("msg1").style.visibility = "visible";
+        }
+        function alertW() {
+            document.getElementById("alertWapp").style.visibility = "visible";
+        }
+        setTimeout("showIt2()", 5000);
+        setTimeout("hiddenIt()", 15000);
+        setTimeout("showIt3()", 25000);
+        setTimeout("alertW()", 15000);
+        document.getElementById('msg1').onclick = function() {
+            document.getElementById('msg1').style.visibility = "hidden";
+        };
+    </script>
+
+    <!-- Menu -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__option">
+            <div class="offcanvas__links">
+                <a href="https://wa.me/{{ telefone_whatsapp }}" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="{{ facebook }}" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/{{ instagram }}/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@{{ tiktok }}" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="offcanvas__nav__option">        
+            <div class="price"></div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__text">
+            <p>{{ empresa_nome }} - Celebrando com Coração.</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo1.png') }}" alt="{{ empresa_nome }}" width="110" height="110"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li class="{% if request.endpoint == 'index' %}active{% endif %}"><a href="{{ url_for('index') }}">Página Inicial</a></li>
+                            <li class="{% if request.endpoint == 'sobre' %}active{% endif %}"><a href="{{ url_for('sobre') }}">Sobre Nós</a></li>                   
+                            <li class="{% if 'vinhos' in request.endpoint or 'espumantes' in request.endpoint or 'embalagens' in request.endpoint or 'novidades' in request.endpoint or 'presentes' in request.endpoint %}active{% endif %}"><a href="{{ url_for('vinhos') }}">Produtos</a></li>
+                            <li class="{% if request.endpoint == 'contato' %}active{% endif %}"><a href="{{ url_for('contato') }}">Contato</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Conteúdo principal -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="{{ url_for('static', filename='img/footer-logo.png') }}" alt="{{ empresa_nome }}"></a>
+                            <p>CNPJ: {{ empresa_cnpj }}</p>
+                        </div>
+                        <p>Olá!!! Seja muito bem-vind@!!! Foi de nossa alegria em celebrar a vida que nasceu a ideia de oferecer uma opção para tornar o ato de 'presentear' um momento inesquecível.</p>
+                        <a href="#"><img src="{{ url_for('static', filename='img/payment.png') }}" alt="Formas de pagamento"></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Produtos</h6>
+                        <ul>
+                            <li><a href="{{ url_for('espumantes') }}">Espumantes</a></li>
+                            <li><a href="{{ url_for('vinhos') }}">Vinho Branco</a></li>
+                            <li><a href="{{ url_for('vinhos_rose') }}">Vinho Rose e Laranja</a></li>
+                            <li><a href="{{ url_for('vinhos_tinto') }}">Vinho Tinto</a></li>
+                            <li><a href="{{ url_for('embalagens') }}">Embalagens</a></li>
+                            <li><a href="{{ url_for('novidades') }}">Novidades</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Adega</h6>
+                        <ul>
+                            <li><a href="{{ url_for('sobre') }}">Sobre Nós</a></li>
+                            <li><a href="{{ link_catalogo_precos }}" target="_blank">Catálogos de Preços</a></li>
+                            <li><a href="{{ link_catalogo_produtos }}" target="_blank">Catálogos de produtos</a></li>
+                            <li><a href="https://api.whatsapp.com/send/?phone={{ telefone_whatsapp }}&text&type=phone_number&app_absent=0" target="_blank">Comprar Agora</a></li>
+                            <li><a href="{{ link_entrega }}" target="_blank">Entrega</a></li>
+                            <li><a href="{{ url_for('contato') }}">Contato</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <a href="https://wa.me/{{ telefone_whatsapp }}" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                        <a href="{{ facebook }}" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/{{ instagram }}/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@{{ tiktok }}" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                        <p><br>É proibida a venda de bebidas alcóolicas para menores de 18 anos. Beber menos é beber melhor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="footer__copyright__text">
+                        <p>Copyright © <script>document.write(new Date().getFullYear());</script> Todos os direitos reservados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+    
+    <!-- JS Plugins -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.nicescroll.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.slicknav.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/mixitup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
+

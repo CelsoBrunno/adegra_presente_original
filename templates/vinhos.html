@@ -1,0 +1,283 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>PRODUTOS</h4>
+                    <div class="breadcrumb__links">
+                        <a href="{{ url_for('index') }}">Home</a>
+                        <span>Produtos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Shop Section Begin -->
+<section class="shop spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="shop__sidebar">
+                    <div class="shop__sidebar__search">
+                        <form action="#">
+                        </form>
+                    </div>
+                    <div class="shop__sidebar__accordion">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#">Categorias</a>
+                                </div>
+                                <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__categories">
+                                            <ul class="nice-scroll">
+                                                <li><a href="{{ url_for('espumantes') }}">Espumantes</a></li>
+                                                <li class="active"><a href="{{ url_for('vinhos') }}">Vinho Branco</a></li>
+                                                <li><a href="{{ url_for('vinhos_rose') }}">Vinho Rose e Laranja</a></li>
+                                                <li><a href="{{ url_for('vinhos_tinto') }}">Vinho Tinto</a></li>
+                                                <li><a href="{{ url_for('embalagens') }}">Embalagens Artesanais</a></li>
+                                                <li><a href="{{ url_for('novidades') }}">Novidades</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="shop__product__option">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__left">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-1.jpg') }}">
+                                <ul class="product__hover">
+                                </ul> 
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco Pequeños Lotes Anforas – Orgânico – Sauvignon Blanc e Semillon 2021 - Vinícola La Florita, Argentina</h6>
+                                    <h6>R$ 319,90</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item sale">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-2.jpg') }}">
+                                <ul class="product__hover">
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco LA Jovem – Gewurztraminer 2023 - Vinícola Luiz Argenta, Brasil</h6>
+                                    <h6>R$ 182,50</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-3.jpg') }}">
+                                <ul class="product__hover">
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco LA Jovem – Riesling 2023 - Vinícola Luiz Argenta, Brasil</h6>
+                                    <h6>R$ 182,50</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item sale">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-4.jpg') }}">
+                                <ul class="product__hover">
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco LA Jovem Ripiano – Riesling, Pinot Noir (vinificado como branco) e Trebbiano Romagnolo 2023 - Vinícola Luiz Argenta, Brasil</h6>
+                                    <h6>R$ 182,50</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-5.jpg') }}">
+                                <ul class="product__hover">
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco Canindé – Colheita de Inverno – Sauvignon Blanc 2023 - Ercoara Cordeiro e Vinho, Brasil</h6>
+                                    <h6>R$ 177,90</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-6.jpg') }}">
+                                <ul class="product__hover">
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco Tierra de Lechuzas – Orgânico – Semillón 2022 - Vinícola La Florita, Argentina</h6>
+                                    <h6>R$ 149,90</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-7.jpg') }}">
+                                <ul class="product__hover">
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco Electrico – Orgânico – Chardonnay e Sauvignon Blanc 2023 - Vinícola Viña Los Chocos, Argentina</h6>
+                                    <h6>R$ 209,90</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-8.jpg') }}">
+                                <ul class="product__hover">
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco El Picoteo – Orgânico - Sauvignon Blanc e Verdejo 2023 - Vinícola Bodegas Piqueras, Espanha</h6>
+                                    <h6>R$ 119,90</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-9.jpg') }}">
+                                <ul class="product__hover">
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco Van Gogh os Girassóis – Alvarinho 2021 - Enos Vinhos de Boutique, Brasil</h6>
+                                    <h6>R$ 199,00</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-10.jpg') }}">
+                                <ul class="product__hover">
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco Monet o Passeio - Viognier 2022 Edição limitada - Enos Vinhos de Boutique, Brasil</h6>
+                                    <h6>R$ 149,00</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-11.jpg') }}">
+                                <ul class="product__hover">
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco Dona Loris - Lorena 2022 - Sanabria Laboratório de Vinhos Naturais, Brasil</h6>
+                                    <h6>R$ 100,00</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-12.jpg') }}">
+                                <ul class="product__hover">
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco Reciprocidade - Moscato 2023 - Sanabria Laboratório de Vinhos Naturais, Brasil</h6>
+                                    <h6>R$ 100,00</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-13.jpg') }}">
+                                <ul class="product__hover">
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco Travessia - Trebbiano 2023 - Sanabria Laboratório de Vinhos Naturais, Brasil</h6>
+                                    <h6>R$ 180,00</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-14.jpg') }}">
+                                <ul class="product__hover">
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco Plural - Riesling Itálico 2023 - Sanabria Laboratório de Vinhos Naturais, Brasil</h6>
+                                    <h6>R$ 142,00</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/branco/product-15.jpg') }}">
+                                <ul class="product__hover">
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <center>
+                                    <h6>Branco Transformação - Moscato Giallo 2024 - Sanabria Laboratório de Vinhos Naturais, Brasil</h6>
+                                    <h6>R$ 132,00</h6>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Section End -->
+{% endblock %}

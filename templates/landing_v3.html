@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ empresa_nome }} — vinhos e presentes com elegância em Brasília.">
+    <title>{{ empresa_nome }} | Wine Story</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing-v3.css') }}">
+</head>
+<body class="w-body">
+
+    {% set wa = "https://api.whatsapp.com/send?phone=" ~ telefone_whatsapp %}
+    {% set wa_geral = wa ~ "&text=" ~ "Olá! Vi a Adega Presente e quero conhecer os vinhos."|urlencode %}
+
+    <div class="w-age" id="wAge" role="dialog" aria-modal="true" aria-labelledby="wAgeTitle">
+        <div class="w-age__box">
+            <h2 id="wAgeTitle">{{ empresa_nome }}</h2>
+            <p>Você tem 18 anos ou mais? A venda de bebidas alcoólicas é proibida para menores.</p>
+            <div class="w-age__actions">
+                <button type="button" class="w-btn w-btn--solid" id="wAgeYes">Sim</button>
+                <button type="button" class="w-btn" id="wAgeNo">Não</button>
+            </div>
+        </div>
+    </div>
+
+    <a class="w-wa" href="{{ wa_geral }}" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <div class="w-shell">
+        <header class="w-header">
+            <img class="w-header__logo" src="{{ url_for('static', filename='img/logo1.png') }}" alt="">
+            <h1 class="w-header__brand">{{ empresa_nome }}</h1>
+            <div class="w-header__links">
+                <a class="w-header__quiet" href="{{ url_for('landing_v2') }}">Landing v2</a>
+                <a class="w-header__quiet" href="{{ url_for('index') }}">Site completo</a>
+            </div>
+        </header>
+
+        <nav class="w-nav-mobile" aria-label="Seções">
+            <a class="is-active" href="#topo">Início</a>
+            <a href="#colecao">Coleção</a>
+            <a href="#promocoes">Promoções</a>
+            <a href="#marca">A loja</a>
+            <a href="#contato">Contato</a>
+        </nav>
+
+        <aside class="w-nav" aria-label="Menu">
+            <a class="is-active" href="#topo">Início</a>
+            <a href="#colecao">Coleção</a>
+            <a href="#promocoes">Promoções</a>
+            <a href="#marca">A loja</a>
+            <a href="{{ link_catalogo_precos }}" target="_blank" rel="noopener">Preços</a>
+            <a href="#contato">Contato</a>
+        </aside>
+
+        <div class="w-stage" id="topo">
+            <section class="w-copy">
+                <h2 class="w-copy__title">Vinho</h2>
+                <p class="w-copy__subtitle">Presentes &amp; celebração</p>
+                <p class="w-copy__meta">Brasília · entrega programada</p>
+                <p class="w-copy__text">
+                    Seleção cuidadosa de rótulos e embalagens artesanais para
+                    tornar o ato de presentear uma experiência elegante e memorável.
+                </p>
+                <a class="w-signup" href="{{ wa_geral }}" target="_blank" rel="noopener" aria-label="Pedir no WhatsApp">
+                    <svg class="w-signup__ring" viewBox="0 0 120 120" aria-hidden="true">
+                        <circle
+                            cx="60"
+                            cy="60"
+                            r="55"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.1"
+                            pathLength="100"
+                            stroke-dasharray="88 12"
+                            stroke-dashoffset="6"
+                        />
+                    </svg>
+                    <span class="w-signup__label">Pedir</span>
+                    <span class="w-signup__arrow" aria-hidden="true">
+                        <svg viewBox="0 0 58 12" width="58" height="12">
+                            <path d="M0 6h48M42 1.5L54 6l-12 4.5" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </a>
+            </section>
+
+            <section class="w-show" id="colecao" aria-label="Destaque da coleção">
+                <div class="w-show__glow" aria-hidden="true"></div>
+                <figure class="w-show__figure" id="wFigure">
+                    <img id="wBottle"
+                         src="{{ url_for('static', filename='img/product/sem-fundo/product-1-removebg-preview.png') }}"
+                         alt="Vinho em destaque">
+                    <figcaption class="w-show__caption">
+                        <p class="w-show__name" id="wName">Espumante Brut</p>
+                        <p class="w-show__type" id="wType">Espumante · Celebração</p>
+                    </figcaption>
+                </figure>
+                <button type="button" class="w-show__next" id="wNext" aria-label="Próximo vinho">Next</button>
+            </section>
+        </div>
+
+        <section class="w-promo" id="promocoes" aria-labelledby="wPromoTitle">
+            <p class="w-promo__kicker">Condição especial</p>
+            <h2 class="w-promo__title" id="wPromoTitle">Desconto Presente Progressivo</h2>
+            <p class="w-promo__text">
+                Válido para rótulos disponíveis, exceto itens já em promoção.
+            </p>
+            <div class="w-promo__grid">
+                <article class="w-promo__item">
+                    <span class="w-promo__num">01</span>
+                    <h3>1 garrafa</h3>
+                    <p>Preço do catálogo / site.</p>
+                </article>
+                <article class="w-promo__item">
+                    <span class="w-promo__num">02</span>
+                    <h3>Até 2 garrafas</h3>
+                    <p>5% de desconto ou cashback de 10% na próxima compra.</p>
+                </article>
+                <article class="w-promo__item">
+                    <span class="w-promo__num">03</span>
+                    <h3>3 ou mais</h3>
+                    <p>10% de desconto ou cashback de 15% na próxima compra.</p>
+                </article>
+            </div>
+            <a class="w-btn w-btn--solid" href="{{ wa_geral }}" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> Quero aproveitar
+            </a>
+        </section>
+
+        <section class="w-brand" id="marca" aria-label="Marca Adega Presente">
+            <div class="w-brand__mark">
+                <img src="{{ url_for('static', filename='img/logo1.png') }}" alt="{{ empresa_nome }}">
+            </div>
+            <div class="w-brand__copy">
+                <p class="w-brand__kicker">Nossa marca</p>
+                <h2 class="w-brand__title">{{ empresa_nome }}</h2>
+                <p class="w-brand__text">
+                    Presentear e ser presente. Bebidas e embalagens escolhidas com carinho
+                    para celebrar a vida em Brasília — com entrega programada.
+                </p>
+                <p class="w-brand__meta">CNPJ {{ empresa_cnpj }}</p>
+                <div class="w-brand__actions">
+                    <a class="w-btn w-btn--solid" href="{{ wa_geral }}" target="_blank" rel="noopener">Falar com a loja</a>
+                    <a class="w-btn" href="{{ link_entrega }}" target="_blank" rel="noopener">Ver entrega</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="w-foot" id="contato">
+            <div class="w-foot__socials">
+                <a href="https://wa.me/{{ telefone_whatsapp }}" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="{{ facebook }}" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/{{ instagram }}/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@{{ tiktok }}" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <div class="w-foot__proof">
+                <strong>Como comprar</strong>
+                Escolha o rótulo e fale conosco no WhatsApp — sem carrinho online.
+            </div>
+            <div class="w-foot__cta">
+                <a class="w-btn w-btn--solid" href="{{ wa_geral }}" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                </a>
+                <a class="w-btn" href="{{ link_catalogo_produtos }}" target="_blank" rel="noopener">Catálogo</a>
+            </div>
+        </footer>
+    </div>
+
+    <p class="w-legal">
+        Copyright © <span id="wYear"></span> {{ empresa_nome }} · CNPJ {{ empresa_cnpj }}.
+        É proibida a venda de bebidas alcoólicas para menores de 18 anos.
+        · <a href="{{ url_for('index') }}">Site completo</a>
+    </p>
+
+    <script>
+        window.W_BOTTLES = [
+            {
+                src: "{{ url_for('static', filename='img/product/sem-fundo/product-1-removebg-preview.png') }}",
+                name: "Espumante Brut",
+                type: "Espumante · Celebração",
+                wa: "{{ wa }}&text={{ 'Olá! Quero saber sobre espumantes.'|urlencode }}"
+            },
+            {
+                src: "{{ url_for('static', filename='img/product/sem-fundo/product-2-removebg-preview.png') }}",
+                name: "Vinho branco",
+                type: "Branco · Elegante",
+                wa: "{{ wa }}&text={{ 'Olá! Quero saber sobre vinhos brancos.'|urlencode }}"
+            },
+            {
+                src: "{{ url_for('static', filename='img/product/sem-fundo/product-3-removebg-preview.png') }}",
+                name: "Rosé",
+                type: "Rosé · Frescor",
+                wa: "{{ wa }}&text={{ 'Olá! Quero saber sobre rosés.'|urlencode }}"
+            },
+            {
+                src: "{{ url_for('static', filename='img/product/sem-fundo/product-4-removebg-preview.png') }}",
+                name: "Mona Lisa",
+                type: "Tinto · Premium",
+                wa: "{{ wa }}&text={{ 'Olá! Quero saber sobre vinhos tintos.'|urlencode }}"
+            },
+            {
+                src: "{{ url_for('static', filename='img/product/sem-fundo/product-5-removebg-preview.png') }}",
+                name: "L'Alegria",
+                type: "Tinto · Seleção",
+                wa: "{{ wa }}&text={{ 'Olá! Quero saber sobre o vinho L Alegria.'|urlencode }}"
+            },
+            {
+                src: "{{ url_for('static', filename='img/product/sem-fundo/product-6-removebg-preview.png') }}",
+                name: "Equis",
+                type: "Laranja · Autoral",
+                wa: "{{ wa }}&text={{ 'Olá! Quero saber sobre vinhos laranja.'|urlencode }}"
+            },
+            {
+                src: "{{ url_for('static', filename='img/product/sem-fundo/product-7-removebg-preview.png') }}",
+                name: "Abraço",
+                type: "Tinto · Presente",
+                wa: "{{ wa }}&text={{ 'Olá! Quero saber sobre Abraço.'|urlencode }}"
+            },
+            {
+                src: "{{ url_for('static', filename='img/product/sem-fundo/product-8-removebg-preview.png') }}",
+                name: "Amizade",
+                type: "Tinto · Especial",
+                wa: "{{ wa }}&text={{ 'Olá! Quero saber sobre Amizade.'|urlencode }}"
+            },
+            {
+                src: "{{ url_for('static', filename='img/product/sem-fundo/product-9-removebg-preview.png') }}",
+                name: "Girola",
+                type: "Tinto · Clássico",
+                wa: "{{ wa }}&text={{ 'Olá! Quero saber sobre Girola.'|urlencode }}"
+            }
+        ];
+    </script>
+    <script src="{{ url_for('static', filename='js/landing-v3.js') }}"></script>
+</body>
+</html>

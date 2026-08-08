@@ -1,0 +1,372 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Header  End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4>PRODUTOS</h4>
+                        <div class="breadcrumb__links">
+                            <a href="{{ url_for('index') }}">Home</a>
+                            <span>Produtos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Shop Section Begin -->
+    <section class="shop spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="shop__sidebar">
+                        <div class="shop__sidebar__search">
+                            <form action="#">
+                                <button type="submit"><span class="icon_search"></span></button>
+                            </form>
+                        </div>
+                        <div class="shop__sidebar__accordion">
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#">Categorias</a>
+                                    </div>
+                                    <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="shop__sidebar__categories">
+                                                <ul class="nice-scroll">
+                                                    <li><a href="{{ url_for('espumantes') }}">Espumantes </a></li>
+                                                    <li><a href="{{ url_for('vinhos') }}">Vinho Branco</a></li>
+                                                    <li><a href="{{ url_for('vinhos_rose') }}">Vinho Rose e Laranja</a></li>
+                                                    <li><a href="{{ url_for('vinhos_tinto') }}">Vinho Tinto </a></li>
+                                                    <li class="active"><a href="{{ url_for('embalagens') }}">Embalagens Artesanais </a></li>
+                                                    <li><a href="{{ url_for('novidades') }}">Novidades</a></li>
+
+                                                                                                    </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                               
+                                                       </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="shop__product__option">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="shop__product__option__left">
+                                </div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-3.jpg') }}">
+                                    <ul class="product__hover">
+                                        
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                        <h6>Embalagem cilíndrica em papelão branco</h6>
+                                        <h6>R$ 15,00 </h6>
+                                        </center>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item sale">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-1.jpg') }}">
+                                    <ul class="product__hover">
+                                                                            </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                    <h6>Caixa de papelão preto para 1 garrafa Luiz Argenta</h6>
+                                    <h6>R$ 8,00 </h6>
+
+                                </center>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-2.jpg') }}">
+                                    <ul class="product__hover">
+                                        
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                    <h6>Caixa de papelão preto para 2 garrafas Luiz Argenta</h6>
+                                     <h6>R$ 13,00</h6>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item sale">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-4.jpg') }}">
+                                    
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                        <h6>Embalagem cilíndrica em papelão preto</h6>
+                                         <h6>R$ 15,00</h6>
+                                        </center>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-5.jpg') }}">
+                                   
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                        <h6>Embalagem cilíndrica em madeira decorada</h6>
+                                         <h6>R$ 32,00</h6>
+                                        </center> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-6.jpg') }}">
+                                    <ul class="product__hover">
+                                      
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                        <h6>Embalagem de couro Montana marrom, reta, com alça de couro</h6>
+                                         <h6>R$ 40,00</h6>
+                                        </center> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-7.jpg') }}">
+                                    <ul class="product__hover">
+                                       
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                        <h6> Embalagem em lonita com alças de couro sintético, signo Aquário</h6>
+                                         <h6>R$ 19,20</h6>
+                                        </center> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item sale">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-8.jpg') }}">
+                                    <ul class="product__hover">
+                                     
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                        <h6> Embalagem em lonita com alças de couro sintético, signo Áries</h6>
+                                         <h6>R$ 19,20</h6>
+                                        </center> 
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-9.jpg') }}">
+                                    <ul class="product__hover">
+                                        
+                                    </ul>
+                                </div>
+                                <div class="product__item__text"> 
+                                    <center>
+                                        <h6> Embalagem em lonita com alças de couro sintético, signo Câncer</h6>
+                                         <h6>R$ 19,20</h6>
+                                        </center> 
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item sale">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-10.jpg') }}">
+                                    <ul class="product__hover">
+                                      
+                                    </ul>
+                                </div>
+                                <div class="product__item__text"> 
+                                    <center>
+                                        <h6>Embalagem em lonita com alças de couro sintético, signo Capricórnio </h6>
+                                         <h6>R$ 19,20</h6>
+                                        </center> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-11.jpg') }}">
+                                    <ul class="product__hover">
+                                        
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                        <h6>Embalagem em lonita com alças de couro sintético, signo Escorpião</h6>
+                                         <h6>R$ 19,20</h6>
+                                        </center> 
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-12.jpg') }}">
+                                    <ul class="product__hover">
+                                        
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                        <h6> Embalagem em lonita com alças de couro sintético, signo Gêmeos</h6>
+                                         <h6>R$ 19,20</h6>
+                                        </center> 
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-13.jpg') }}">
+                                    <ul class="product__hover">
+                                        
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                        <h6>Embalagem em lonita com alças de couro sintético, signo Leão </h6>
+                                         <h6>R$ 19,20</h6>
+                                        </center> 
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-14.jpg') }}">
+                                    <ul class="product__hover">
+                                        
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                        <h6>Embalagem em lonita com alças de couro sintético, signo Libra </h6>
+                                         <h6>R$ 19,20</h6>
+                                        </center> 
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-15.jpg') }}">
+                                    <ul class="product__hover">
+                                        
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                        <h6>Embalagem em lonita com alças de couro sintético, signo Peixes </h6>
+                                         <h6>R$ 19,20</h6>
+                                        </center> 
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-16.jpg') }}">
+                                    <ul class="product__hover">
+                                        
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                        <h6>Embalagem em lonita com alças de couro sintético, signo Sagitário</h6>
+                                         <h6>R$ 19,20</h6>
+                                        </center> 
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-17.jpg') }}">
+                                    <ul class="product__hover">
+                                        
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                        <h6>Embalagem em lonita com alças de couro sintético, signo Touro </h6>
+                                         <h6>R$ 19,20</h6>
+                                        </center> 
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ url_for('static', filename='img/product/embalagens/product-18.jpg') }}">
+                                    <ul class="product__hover">
+                                        
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <center>
+                                        <h6>Embalagem em lonita com alças de couro sintético, signo Virgem </h6>
+                                         <h6>R$ 19,20</h6>
+                                        </center> 
+                                  
+                                </div>
+                            </div>
+                        </div>
+                       
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="product__pagination">
+                                <a class="active" href="{{ url_for('embalagens') }}">1</a>
+                                <a href="{{ url_for('embalagens_2') }}">2</a>
+                               <!--  <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#">6</a>
+                                <span>...</span>
+                                <a href="#">21</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shop Section End -->
+{% endblock %}

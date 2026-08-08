@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<br>
+<br>
+
+<!-- Contact Section Begin -->
+<section class="contact spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="contact__text">
+                    <div class="section-title">
+                        <span>CONTATO</span>
+                        <h3>Entre em contato para saber mais</h3>
+                    </div>
+                    <ul>
+                        <li>
+                            <p>
+                                <b><h4>Telefone:</b> (61) 99612-7475</h4>
+                                <b><h4>E-mail:</b> {{ email_contato }}</h4>
+                                <br>
+                                <h4>Siga-nos no Instagram: 
+                                    <a href="https://www.instagram.com/{{ instagram }}/" target="_blank" style="color: #aa1c21; text-decoration: underline;">
+                                        @{{ instagram }}
+                                    </a>
+                                </h4>
+                                <br>
+                                <h4>Brasília - Distrito Federal (Consulte entrega programada <a href="{{ link_entrega }}" target="_blank" style="color: #aa1c21; text-decoration: underline;">clicando aqui</a>)</h4>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section End -->
+{% endblock %}
+
