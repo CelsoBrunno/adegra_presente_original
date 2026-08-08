@@ -314,58 +314,35 @@ body.w-body {
 
 .w-signup {
   position: relative;
-  width: 112px;
-  height: 112px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 132px;
+  height: 120px;
   color: var(--w-ink);
   flex-shrink: 0;
   transition: transform 0.3s var(--w-ease), color 0.25s ease;
 }
 
-.w-signup__ring {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.w-signup__label {
-  position: absolute;
-  left: 18px;
-  top: 50%;
-  z-index: 2;
-  transform: translateY(-50%);
-  font-family: "Manrope", system-ui, sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  background: transparent;
-  line-height: 1;
-}
-
-.w-signup__arrow {
-  position: absolute;
-  left: 58px;
-  top: 50%;
-  z-index: 1;
-  width: 58px;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  color: var(--w-ink);
-  pointer-events: none;
-}
-
-.w-signup__arrow svg {
-  width: 100%;
-  height: auto;
+.w-signup__art {
+  width: 132px;
+  height: 120px;
   overflow: visible;
+  display: block;
+}
+
+.w-body a.w-signup,
+.w-body a.w-signup:visited,
+.w-body a.w-signup:hover {
+  color: var(--w-ink);
 }
 
 .w-signup:hover {
-  transform: translateX(3px);
+  transform: translateX(4px);
+  color: var(--w-brand);
+}
+
+.w-body a.w-signup:hover {
   color: var(--w-brand);
 }
 
