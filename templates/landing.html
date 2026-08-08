@@ -39,7 +39,7 @@
                 <img src="{{ url_for('static', filename='img/logo1.png') }}" alt="{{ empresa_nome }}">
             </a>
             <div class="lp-top__actions">
-                <a class="lp-link-quiet" href="{{ url_for('index') }}">Site completo</a>
+                <a class="lp-link-quiet" href="{{ url_for('loja') }}">Site completo</a>
                 <a class="lp-btn lp-btn--wa" href="{{ wa_geral }}" target="_blank" rel="noopener">
                     <i class="fab fa-whatsapp" aria-hidden="true"></i> Pedir agora
                 </a>
@@ -214,7 +214,7 @@
                     </a>
                     <a class="lp-btn lp-btn--outline" href="{{ link_catalogo_precos }}" target="_blank" rel="noopener">Catálogo de preços</a>
                     <a class="lp-btn lp-btn--outline" href="{{ link_catalogo_produtos }}" target="_blank" rel="noopener">Catálogo de produtos</a>
-                    <a class="lp-btn lp-btn--outline" href="{{ url_for('index') }}">Abrir site completo</a>
+                    <a class="lp-btn lp-btn--outline" href="{{ url_for('loja') }}">Abrir site completo</a>
                 </div>
             </div>
         </section>
@@ -226,7 +226,7 @@
                 Copyright © <span id="lpYear"></span> {{ empresa_nome }}.
                 É proibida a venda de bebidas alcoólicas para menores de 18 anos.
             </p>
-            <p><a href="{{ url_for('index') }}">Ir para o site completo</a></p>
+            <p><a href="{{ url_for('loja') }}">Ir para o site completo</a></p>
         </div>
     </footer>
 

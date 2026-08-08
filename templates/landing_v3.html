@@ -37,7 +37,7 @@
             <h1 class="w-header__brand">{{ empresa_nome }}</h1>
             <div class="w-header__links">
                 <a class="w-header__quiet" href="{{ url_for('landing_v2') }}">Landing v2</a>
-                <a class="w-header__quiet" href="{{ url_for('index') }}">Site completo</a>
+                <a class="w-header__quiet" href="{{ url_for('loja') }}">Site completo</a>
             </div>
         </header>
 
@@ -175,7 +175,7 @@
     <p class="w-legal">
         Copyright © <span id="wYear"></span> {{ empresa_nome }} · CNPJ {{ empresa_cnpj }}.
         É proibida a venda de bebidas alcoólicas para menores de 18 anos.
-        · <a href="{{ url_for('index') }}">Site completo</a>
+        · <a href="{{ url_for('loja') }}">Site completo</a>
     </p>
 
     <script>

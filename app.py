@@ -23,6 +23,12 @@ def inject_config():
 # Rotas
 @app.route('/')
 def index():
+    """Rota principal — landing editorial (v3)."""
+    return render_template('landing_v3.html')
+
+@app.route('/loja')
+def loja():
+    """Catálogo / site completo (home antiga)."""
     return render_template('index.html')
 
 @app.route('/sobre')
@@ -75,17 +81,17 @@ def presentes():
 
 @app.route('/landing')
 def landing():
-    """Landing page única — o site completo permanece nas demais rotas."""
+    """Landing page única — categorias + WhatsApp."""
     return render_template('landing.html')
 
 @app.route('/landing-v2')
 def landing_v2():
-    """Landing vitrine premium (modelo seções / zig-zag) — para comparação."""
+    """Landing vitrine premium (modelo seções / zig-zag)."""
     return render_template('landing_v2.html')
 
 @app.route('/landing-v3')
 def landing_v3():
-    """Landing editorial (modelo Wine Story) — texturas em static/img/landing-v3/."""
+    """Landing editorial (modelo Wine Story) — mesma da rota principal."""
     return render_template('landing_v3.html')
 
 if __name__ == '__main__':

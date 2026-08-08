@@ -274,13 +274,13 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="header__logo">
-                        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo1.png') }}" alt="{{ empresa_nome }}" width="110" height="110"></a>
+                        <a href="{{ url_for('loja') }}"><img src="{{ url_for('static', filename='img/logo1.png') }}" alt="{{ empresa_nome }}" width="110" height="110"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="{% if request.endpoint == 'index' %}active{% endif %}"><a href="{{ url_for('index') }}">Página Inicial</a></li>
+                            <li class="{% if request.endpoint == 'loja' %}active{% endif %}"><a href="{{ url_for('loja') }}">Página Inicial</a></li>
                             <li class="{% if request.endpoint == 'sobre' %}active{% endif %}"><a href="{{ url_for('sobre') }}">Sobre Nós</a></li>                   
                             <li class="{% if 'vinhos' in request.endpoint or 'espumantes' in request.endpoint or 'embalagens' in request.endpoint or 'novidades' in request.endpoint or 'presentes' in request.endpoint %}active{% endif %}"><a href="{{ url_for('vinhos') }}">Produtos</a></li>
                             <li class="{% if request.endpoint == 'contato' %}active{% endif %}"><a href="{{ url_for('contato') }}">Contato</a></li>
